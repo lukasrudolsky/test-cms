@@ -7,10 +7,10 @@ const EXCHANGES = [
 
 function ExchangeLogo({ exchange }: { exchange: (typeof EXCHANGES)[number] }) {
   return (
-    <div className="mx-12 flex items-center">
+    <div className="mx-6 flex items-center sm:mx-12">
       <img
         alt={exchange.name}
-        className="h-8 w-auto object-contain grayscale transition-[filter] duration-300 hover:grayscale-0"
+        className="h-6 w-auto object-contain grayscale transition-[filter] duration-300 hover:grayscale-0 sm:h-8"
         draggable={false}
         src={exchange.src}
       />

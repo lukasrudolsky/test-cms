@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 type NavbarProps = {
   content: {
     brand: string;
@@ -31,10 +35,25 @@ function LogoMark() {
   );
 }
 
-export default function Navbar({ content }: NavbarProps) {
+function MenuIcon({ open }: { open: boolean }) {
   return (
-    <header className="fixed inset-x-0 top-5 z-50 flex justify-center px-6">
-      <nav className="relative grid h-[64px] w-full max-w-[1120px] grid-cols-[1fr_auto_1fr] items-center overflow-hidden rounded-full border border-white/10 bg-black/40 px-6 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-2xl backdrop-saturate-150">
+    <svg className="size-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      {open ? (
+        <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+      ) : (
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+      )}
+    </svg>
+  );
+}
+
+export default function Navbar({ content }: NavbarProps) {
+  const [open, setOpen] = useState(false);
+  const links = content.links ?? [];
+
+  return (
+    <header className="fixed inset-x-0 top-5 z-50 flex flex-col items-center px-4 sm:px-6">
+      <nav className="relative grid h-[64px] w-full max-w-[1120px] grid-cols-[1fr_auto_1fr] items-center overflow-hidden rounded-full border border-white/10 bg-black/40 px-4 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-2xl backdrop-saturate-150 sm:px-6">
         {/* Grain texture: sits above the blur, below the content */}
         <div
           aria-hidden="true"
@@ -50,11 +69,13 @@ export default function Navbar({ content }: NavbarProps) {
           aria-label="Enoki"
         >
           <LogoMark />
-          <span className="text-[20px] font-semibold tracking-[-0.035em] text-white">{content.brand}</span>
+          <span className="text-[18px] font-semibold tracking-[-0.035em] text-white sm:text-[20px]">
+            {content.brand}
+          </span>
         </a>
 
         <div className="relative hidden h-full items-center justify-center gap-9 [grid-column:2] lg:flex">
-          {(content.links ?? []).map((link, index) => (
+          {links.map((link, index) => (
             <a
               key={`${link.label}-${index}`}
               href="#"
@@ -65,10 +86,40 @@ export default function Navbar({ content }: NavbarProps) {
           ))}
         </div>
 
-        <button className="relative ml-auto flex h-11 items-center justify-center rounded-full bg-white px-6 text-[15px] font-semibold leading-[1] tracking-[-0.015em] text-[#18191c] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)] transition-colors hover:bg-white/90 [grid-column:3]">
-          {content.cta}
-        </button>
+        <div className="relative ml-auto flex items-center gap-2 [grid-column:3]">
+          {links.length > 0 && (
+            <button
+              type="button"
+              aria-label={open ? "Zavřít menu" : "Otevřít menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((value) => !value)}
+              className="grid size-11 place-items-center rounded-full text-white transition-colors hover:bg-white/10 lg:hidden"
+            >
+              <MenuIcon open={open} />
+            </button>
+          )}
+          <button className="flex h-11 items-center justify-center rounded-full bg-white px-4 text-[14px] font-semibold leading-[1] tracking-[-0.015em] text-[#18191c] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)] transition-colors hover:bg-white/90 sm:px-6 sm:text-[15px]">
+            {content.cta}
+          </button>
+        </div>
       </nav>
+
+      {open && links.length > 0 && (
+        <div className="relative mt-2 w-full max-w-[1120px] overflow-hidden rounded-3xl border border-white/10 bg-black/80 px-6 py-4 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-2xl backdrop-saturate-150 lg:hidden">
+          <div className="flex flex-col gap-1">
+            {links.map((link, index) => (
+              <a
+                key={`${link.label}-${index}`}
+                href="#"
+                onClick={() => setOpen(false)}
+                className="rounded-xl px-2 py-2.5 text-[15px] font-semibold tracking-[-0.015em] text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 }

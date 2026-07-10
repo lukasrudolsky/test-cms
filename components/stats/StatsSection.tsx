@@ -48,12 +48,12 @@ export default function StatsSection({ cards }: { cards: StatCardContent[] }) {
   if (safeCards.length === 0) return null;
 
   return (
-    <section className="bg-[#f4f4f6] px-5 pb-28 pt-24">
+    <section className="bg-[#f4f4f6] px-5 pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-28 lg:pt-24">
       <div className="mx-auto grid max-w-[930px] grid-cols-1 gap-4 md:grid-cols-3">
         {safeCards.map((card, index) => (
           <article
             key={`${card.label}-${index}`}
-            className="flex h-[312px] flex-col justify-between rounded-[10px] bg-white px-6 pb-7 pt-6"
+            className="flex h-[220px] flex-col justify-between rounded-[10px] bg-white px-6 pb-7 pt-6 sm:h-[260px] lg:h-[312px]"
           >
             <div className="grid size-12 place-items-center rounded-[8px] bg-[#f4f4f6] text-[#171725]">
               <Icon name={card.icon} />
