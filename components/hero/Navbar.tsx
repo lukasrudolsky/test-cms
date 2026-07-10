@@ -69,7 +69,7 @@ export default function Navbar({ content }: NavbarProps) {
           aria-label="Enoki"
         >
           <LogoMark />
-          <span className="text-[18px] font-semibold tracking-[-0.035em] text-white sm:text-[20px]">
+          <span className="text-[16px] font-semibold tracking-[-0.035em] text-white sm:text-[20px]">
             {content.brand}
           </span>
         </a>
@@ -86,19 +86,19 @@ export default function Navbar({ content }: NavbarProps) {
           ))}
         </div>
 
-        <div className="relative ml-auto flex items-center gap-2 [grid-column:3]">
+        <div className="relative ml-auto flex items-center gap-1 [grid-column:3] sm:gap-2">
           {links.length > 0 && (
             <button
               type="button"
               aria-label={open ? "Zavřít menu" : "Otevřít menu"}
               aria-expanded={open}
               onClick={() => setOpen((value) => !value)}
-              className="grid size-11 place-items-center rounded-full text-white transition-colors hover:bg-white/10 lg:hidden"
+              className="grid size-10 shrink-0 place-items-center rounded-full text-white transition-colors hover:bg-white/10 sm:size-11 lg:hidden"
             >
               <MenuIcon open={open} />
             </button>
           )}
-          <button className="flex h-11 items-center justify-center rounded-full bg-white px-4 text-[14px] font-semibold leading-[1] tracking-[-0.015em] text-[#18191c] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)] transition-colors hover:bg-white/90 sm:px-6 sm:text-[15px]">
+          <button className="flex h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-white px-3 text-[13px] font-semibold leading-[1] tracking-[-0.015em] text-[#18191c] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)] transition-colors hover:bg-white/90 sm:h-11 sm:px-6 sm:text-[15px]">
             {content.cta}
           </button>
         </div>
