@@ -61,11 +61,11 @@ export default function StatsSection({ cards }: { cards: StatCardContent[] }) {
 
             <div>
               {card.value ? (
-                <div className="text-[64px] font-normal leading-[0.92] tracking-[-0.07em] text-[#11111d]">
+                <div className="text-[48px] font-normal leading-[0.92] tracking-[-0.06em] text-[#11111d] sm:text-[56px] lg:text-[64px] lg:tracking-[-0.07em]">
                   {card.value}
                 </div>
               ) : (
-                <h2 className="whitespace-pre-line text-[32px] font-normal leading-[0.92] tracking-[-0.055em] text-[#11111d]">
+                <h2 className="whitespace-pre-line text-[26px] font-normal leading-[0.92] tracking-[-0.045em] text-[#11111d] sm:text-[28px] lg:text-[32px] lg:tracking-[-0.055em]">
                   {card.title}
                 </h2>
               )}

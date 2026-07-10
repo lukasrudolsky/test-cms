@@ -213,12 +213,12 @@ export default function ConnectSection({
       </div>
 
       <div className="relative mx-auto max-w-[930px]">
-        <div className="mb-9 grid grid-cols-[1fr_auto] items-start gap-6">
+        <div className="mb-9 grid grid-cols-1 items-start gap-6 sm:grid-cols-[1fr_auto]">
           <div>
             <div className="mb-5 inline-flex h-11 items-center rounded-lg border border-white/10 bg-white/[0.04] px-4 text-[14px] font-semibold text-white">
               {content.eyebrow}
             </div>
-            <h2 className="max-w-[760px] text-[40px] font-medium leading-[0.98] tracking-[-0.055em] text-white">
+            <h2 className="max-w-[760px] text-[28px] font-medium leading-[1.02] tracking-[-0.04em] text-white sm:text-[34px] lg:text-[40px] lg:leading-[0.98] lg:tracking-[-0.055em]">
               {content.title}
             </h2>
             <p className="mt-4 max-w-[470px] text-[18px] font-medium leading-[1.35] tracking-[-0.03em] text-[#7f7b8d]">
@@ -226,23 +226,25 @@ export default function ConnectSection({
             </p>
           </div>
 
-          <button className="mt-0 flex h-12 items-center gap-3 rounded-full bg-[#332c4b] px-6 text-[14px] font-semibold text-white shadow-[0_14px_36px_rgba(0,0,0,0.18)]">
+          <button className="mt-0 flex h-12 items-center gap-3 self-start rounded-full bg-[#332c4b] px-6 text-[14px] font-semibold text-white shadow-[0_14px_36px_rgba(0,0,0,0.18)]">
             {content.cta}
             <ArrowCircle />
           </button>
         </div>
 
-        <div className="relative h-[535px]">
-          <div className="absolute left-[-470px] top-7 h-[456px] w-[455px] rounded-[16px] border border-dashed border-[#514a69]" />
-          <div className="absolute right-[-470px] top-7 h-[456px] w-[455px] rounded-[16px] border border-dashed border-[#514a69]" />
-          <button className="absolute left-[-125px] top-[256px] grid size-9 -translate-y-1/2 place-items-center text-[#827b91]">
-            <CarouselArrow direction="left" />
-          </button>
-          <button className="absolute right-[-125px] top-[256px] grid size-9 -translate-y-1/2 place-items-center text-[#827b91]">
-            <CarouselArrow direction="right" />
-          </button>
+        <div className="relative h-[225px] overflow-hidden sm:h-[294px] md:h-[401px] lg:h-[535px] lg:overflow-visible">
+          <div className="origin-top scale-[0.42] sm:scale-[0.55] md:scale-[0.75] lg:scale-100">
+            <div className="absolute left-[-470px] top-7 h-[456px] w-[455px] rounded-[16px] border border-dashed border-[#514a69]" />
+            <div className="absolute right-[-470px] top-7 h-[456px] w-[455px] rounded-[16px] border border-dashed border-[#514a69]" />
+            <button className="absolute left-[-125px] top-[256px] grid size-9 -translate-y-1/2 place-items-center text-[#827b91]">
+              <CarouselArrow direction="left" />
+            </button>
+            <button className="absolute right-[-125px] top-[256px] grid size-9 -translate-y-1/2 place-items-center text-[#827b91]">
+              <CarouselArrow direction="right" />
+            </button>
 
-          <MacBookShowcase content={content} screenImage={screenImage} screenImageAlt={screenImageAlt} />
+            <MacBookShowcase content={content} screenImage={screenImage} screenImageAlt={screenImageAlt} />
+          </div>
         </div>
 
         <div className="mt-10 flex justify-center gap-7">
