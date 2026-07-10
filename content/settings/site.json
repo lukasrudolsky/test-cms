@@ -1,0 +1,19 @@
+{
+  "brand": "Enoki",
+  "tagline": "Developer-centric blockchain infrastructure for Sui apps",
+  "nav": {
+    "links": [
+      { "label": "Features" },
+      { "label": "For Devs" },
+      { "label": "Platform" },
+      { "label": "Usecases" },
+      { "label": "Pricing" }
+    ],
+    "cta": "Launch Portal"
+  },
+  "seoDefaults": {
+    "title": "Enoki — Developer-centric blockchain infrastructure for Sui apps",
+    "description": "Enoki gives developers simple APIs to integrate on-chain features into any application — wallets, gas-free transactions and zkLogin, all via a simple monthly subscription.",
+    "ogImage": "/og-image.png"
+  }
+}

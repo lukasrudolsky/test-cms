@@ -1,0 +1,181 @@
+# Konfigurace Pages CMS (https://app.pagescms.org)
+# Tento soubor určuje, co může klient v administraci upravovat.
+# Nemění se v něm žádný kód webu — jen popisuje, kde jsou obsahové soubory.
+
+media:
+  input: "public/uploads"
+  output: "/uploads"
+
+content:
+  - name: "domovska-stranka"
+    label: "Domovská stránka"
+    type: "file"
+    path: "content/pages/home.json"
+    format: "json"
+    fields:
+      - name: "seo"
+        label: "SEO a sdílení na sociálních sítích"
+        type: "object"
+        description: "Pokud necháš pole prázdná, použije se výchozí nastavení firmy."
+        fields:
+          - name: "title"
+            label: "SEO titulek stránky"
+            type: "string"
+            description: "Zobrazí se ve výsledcích vyhledávání a na kartě v prohlížeči."
+            required: false
+          - name: "description"
+            label: "Meta popis"
+            type: "text"
+            description: "Krátký popis stránky pro vyhledávače, ideálně do 160 znaků."
+            required: false
+          - name: "ogImage"
+            label: "Obrázek pro sdílení (Open Graph)"
+            type: "image"
+            description: "Zobrazí se jako náhled při sdílení odkazu na Facebooku, LinkedIn apod. Doporučený poměr 1200×630 px."
+            required: false
+
+      - name: "hero"
+        label: "Úvodní sekce (Hero)"
+        type: "object"
+        description: "Velký nadpis a text hned v horní části stránky."
+        fields:
+          - name: "title"
+            label: "Hlavní nadpis"
+            type: "text"
+            description: "Nový řádek v textu vytvoří zalomení nadpisu na obrazovce."
+            required: true
+          - name: "description"
+            label: "Popisný text pod nadpisem"
+            type: "text"
+            required: true
+          - name: "primaryCta"
+            label: "Text hlavního tlačítka"
+            type: "string"
+            required: true
+          - name: "secondaryCta"
+            label: "Text vedlejšího tlačítka"
+            type: "string"
+            required: true
+          - name: "image"
+            label: "Doplňkový obrázek za nadpisem"
+            type: "image"
+            description: "Nepovinné. Pokud zůstane prázdné, obrázek se nezobrazí."
+            required: false
+          - name: "imageAlt"
+            label: "Alternativní text obrázku"
+            type: "string"
+            description: "Krátký popis obrázku pro nevidomé uživatele a vyhledávače."
+            required: false
+
+      - name: "stats"
+        label: "Statistiky a čísla"
+        type: "list"
+        description: "Karty se statistikami v prostřední části stránky. Lze přidávat, mazat i měnit pořadí přetažením."
+        fields:
+          - name: "icon"
+            label: "Ikona"
+            type: "select"
+            options:
+              values: ["network", "card", "shield", "scan", "check", "nodes"]
+            required: true
+          - name: "value"
+            label: "Velké číslo (např. 1000+)"
+            type: "string"
+            description: "Vyplň buď toto pole, nebo pole 'Nadpis karty' níže — ne obě najednou."
+            required: false
+          - name: "title"
+            label: "Nadpis karty (místo čísla)"
+            type: "text"
+            required: false
+          - name: "label"
+            label: "Popisek pod číslem/nadpisem"
+            type: "string"
+            required: true
+
+      - name: "connect"
+        label: "Sekce Connect"
+        type: "object"
+        description: "Tmavá sekce s ukázkou produktu a dvěma vlastnostmi."
+        fields:
+          - name: "eyebrow"
+            label: "Krátký štítek nad nadpisem"
+            type: "string"
+            required: true
+          - name: "title"
+            label: "Nadpis sekce"
+            type: "string"
+            required: true
+          - name: "description"
+            label: "Popisný text"
+            type: "text"
+            required: true
+          - name: "cta"
+            label: "Text tlačítka"
+            type: "string"
+            required: true
+          - name: "featureOne"
+            label: "První vlastnost"
+            type: "string"
+            required: true
+          - name: "featureTwo"
+            label: "Druhá vlastnost"
+            type: "string"
+            required: true
+          - name: "screenImage"
+            label: "Obrázek náhledu obrazovky"
+            type: "image"
+            description: "Nepovinné. Zobrazí se jako podklad v prosvítající vrstvě uvnitř notebooku."
+            required: false
+          - name: "screenImageAlt"
+            label: "Alternativní text obrázku"
+            type: "string"
+            required: false
+
+  - name: "nastaveni-firmy"
+    label: "Nastavení firmy"
+    type: "file"
+    path: "content/settings/site.json"
+    format: "json"
+    fields:
+      - name: "brand"
+        label: "Název firmy / značky"
+        type: "string"
+        description: "Zobrazuje se v navigaci a v titulku stránky."
+        required: true
+      - name: "tagline"
+        label: "Slogan firmy"
+        type: "string"
+        required: true
+      - name: "nav"
+        label: "Navigační menu (horní lišta)"
+        type: "object"
+        fields:
+          - name: "links"
+            label: "Položky menu"
+            type: "list"
+            description: "Pořadí položek odpovídá pořadí v menu."
+            fields:
+              - name: "label"
+                label: "Text položky"
+                type: "string"
+                required: true
+          - name: "cta"
+            label: "Text tlačítka v navigaci"
+            type: "string"
+            required: true
+      - name: "seoDefaults"
+        label: "Výchozí SEO (použije se, pokud stránka nemá vlastní)"
+        type: "object"
+        fields:
+          - name: "title"
+            label: "Výchozí SEO titulek"
+            type: "string"
+            required: true
+          - name: "description"
+            label: "Výchozí meta popis"
+            type: "text"
+            required: true
+          - name: "ogImage"
+            label: "Výchozí obrázek pro sdílení (Open Graph)"
+            type: "image"
+            required: false

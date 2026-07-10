@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background-color: #f4f4f6;
+}
+
+@keyframes exchange-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-exchange-marquee {
+  animation: exchange-marquee 34s linear infinite;
+}
+
+@keyframes connect-purple-flow {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1.04);
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(2%, 1%, 0) scale(1.1);
+    filter: hue-rotate(10deg);
+  }
+
+  100% {
+    transform: translate3d(-2%, -1%, 0) scale(1.04);
+    filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes connect-sheen {
+  0% {
+    transform: translateX(-120%) rotate(10deg);
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 0.45;
+  }
+
+  42% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(140%) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes connect-code-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+@keyframes connect-laptop-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg);
+  }
+
+  50% {
+    transform: translate3d(0, -8px, 0) rotateX(1deg);
+  }
+}
+
+.animate-connect-purple-flow {
+  animation: connect-purple-flow 11s ease-in-out infinite;
+}
+
+.animate-connect-sheen {
+  animation: connect-sheen 5.8s ease-in-out infinite;
+}
+
+.animate-connect-code-float {
+  animation: connect-code-float 6.5s ease-in-out infinite;
+}
+
+.animate-connect-laptop-float {
+  animation: connect-laptop-float 7.5s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-exchange-marquee,
+  .animate-connect-purple-flow,
+  .animate-connect-sheen,
+  .animate-connect-code-float,
+  .animate-connect-laptop-float {
+    animation: none;
+  }
+}

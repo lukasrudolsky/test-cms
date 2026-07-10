@@ -1,0 +1,57 @@
+{
+  "seo": {
+    "title": "",
+    "description": "",
+    "ogImage": ""
+  },
+  "hero": {
+    "title": "Developer-centric blockchain\ninfrastructure for Sui apps",
+    "description": "Enoki gives developers simple APIs to integrate on-chain features into any application.\nEasy tools, game changing capabilities, all via a simple monthly subscription.",
+    "primaryCta": "Launch Portal",
+    "secondaryCta": "Read Docs",
+    "image": "",
+    "imageAlt": ""
+  },
+  "stats": [
+    {
+      "icon": "network",
+      "value": "1000+",
+      "label": "Apps built on Enoki"
+    },
+    {
+      "icon": "card",
+      "value": "70M+",
+      "label": "Sponsored transactions"
+    },
+    {
+      "icon": "shield",
+      "value": "500+",
+      "label": "Daily active wallets"
+    },
+    {
+      "icon": "scan",
+      "title": "Password-free\nwallets",
+      "label": "Powered by zkLogin"
+    },
+    {
+      "icon": "check",
+      "title": "Gas-free\ntransactions",
+      "label": "Seamless integration"
+    },
+    {
+      "icon": "nodes",
+      "title": "Built for\nenterprise scale",
+      "label": "Built-in RPC support"
+    }
+  ],
+  "connect": {
+    "eyebrow": "Enoki Connect",
+    "title": "Portable wallets, without the headache",
+    "description": "Users can take their wallets with them, and connect to any application on Sui.",
+    "cta": "View Docs",
+    "featureOne": "Create and manage wallets with Google, Apple, Facebook and more",
+    "featureTwo": "Support available across the Sui ecosystem",
+    "screenImage": "",
+    "screenImageAlt": ""
+  }
+}
