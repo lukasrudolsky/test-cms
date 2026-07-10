@@ -3,11 +3,24 @@
   "tagline": "Developer-centric blockchain infrastructure for Sui apps",
   "nav": {
     "links": [
-      { "label": "Features" },
-      { "label": "For Devs" },
-      { "label": "Platform" },
-      { "label": "Usecases" },
-      { "label": "Pricing" }
+      {
+        "label": "Features"
+      },
+      {
+        "label": "For Devs"
+      },
+      {
+        "label": "Platform"
+      },
+      {
+        "label": "Usecases"
+      },
+      {
+        "label": "Pricing"
+      },
+      {
+        "label": "Test"
+      }
     ],
     "cta": "Launch Portal"
   },
