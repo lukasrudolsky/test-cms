@@ -5,7 +5,7 @@ export default function BackgroundWireframe() {
       aria-hidden="true"
     >
       <img
-        src="/generated/hero-wireframe-bg.png"
+        src="/generated/hero-wireframe-bg.jpg"
         alt=""
         className="h-full w-full object-cover opacity-[0.78]"
       />
