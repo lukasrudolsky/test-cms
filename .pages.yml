@@ -5,6 +5,8 @@
 media:
   input: "public/uploads"
   output: "/uploads"
+  extensions: ["jpg", "jpeg", "png", "webp", "svg", "gif"]
+  rename: "safe"
 
 content:
   - name: "domovska-stranka"
@@ -21,13 +23,17 @@ content:
           - name: "title"
             label: "SEO titulek stránky"
             type: "string"
-            description: "Zobrazí se ve výsledcích vyhledávání a na kartě v prohlížeči."
+            description: "Zobrazí se ve výsledcích vyhledávání a na kartě v prohlížeči. Doporučeno do 60 znaků."
             required: false
+            options:
+              maxlength: 70
           - name: "description"
             label: "Meta popis"
             type: "text"
             description: "Krátký popis stránky pro vyhledávače, ideálně do 160 znaků."
             required: false
+            options:
+              maxlength: 180
           - name: "ogImage"
             label: "Obrázek pro sdílení (Open Graph)"
             type: "image"
@@ -42,20 +48,28 @@ content:
           - name: "title"
             label: "Hlavní nadpis"
             type: "text"
-            description: "Nový řádek v textu vytvoří zalomení nadpisu na obrazovce."
+            description: "Nový řádek v textu vytvoří zalomení nadpisu na obrazovce. Delší text se nemusí vejít pěkně do designu."
             required: true
+            options:
+              maxlength: 90
           - name: "description"
             label: "Popisný text pod nadpisem"
             type: "text"
             required: true
+            options:
+              maxlength: 220
           - name: "primaryCta"
             label: "Text hlavního tlačítka"
             type: "string"
             required: true
+            options:
+              maxlength: 24
           - name: "secondaryCta"
             label: "Text vedlejšího tlačítka"
             type: "string"
             required: true
+            options:
+              maxlength: 24
           - name: "image"
             label: "Doplňkový obrázek za nadpisem"
             type: "image"
@@ -66,11 +80,16 @@ content:
             type: "string"
             description: "Krátký popis obrázku pro nevidomé uživatele a vyhledávače."
             required: false
+            options:
+              maxlength: 120
 
       - name: "stats"
         label: "Statistiky a čísla"
         type: "object"
-        list: true
+        list:
+          collapsible:
+            collapsed: false
+            summary: "{label}"
         description: "Karty se statistikami v prostřední části stránky. Lze přidávat, mazat i měnit pořadí přetažením."
         fields:
           - name: "icon"
@@ -84,14 +103,20 @@ content:
             type: "string"
             description: "Vyplň buď toto pole, nebo pole 'Nadpis karty' níže — ne obě najednou."
             required: false
+            options:
+              maxlength: 12
           - name: "title"
             label: "Nadpis karty (místo čísla)"
             type: "text"
             required: false
+            options:
+              maxlength: 40
           - name: "label"
             label: "Popisek pod číslem/nadpisem"
             type: "string"
             required: true
+            options:
+              maxlength: 60
 
       - name: "connect"
         label: "Sekce Connect"
@@ -102,26 +127,38 @@ content:
             label: "Krátký štítek nad nadpisem"
             type: "string"
             required: true
+            options:
+              maxlength: 40
           - name: "title"
             label: "Nadpis sekce"
             type: "string"
             required: true
+            options:
+              maxlength: 80
           - name: "description"
             label: "Popisný text"
             type: "text"
             required: true
+            options:
+              maxlength: 200
           - name: "cta"
             label: "Text tlačítka"
             type: "string"
             required: true
+            options:
+              maxlength: 24
           - name: "featureOne"
             label: "První vlastnost"
             type: "string"
             required: true
+            options:
+              maxlength: 90
           - name: "featureTwo"
             label: "Druhá vlastnost"
             type: "string"
             required: true
+            options:
+              maxlength: 90
           - name: "screenImage"
             label: "Obrázek náhledu obrazovky"
             type: "image"
@@ -131,6 +168,8 @@ content:
             label: "Alternativní text obrázku"
             type: "string"
             required: false
+            options:
+              maxlength: 120
 
   - name: "nastaveni-firmy"
     label: "Nastavení firmy"
@@ -143,10 +182,14 @@ content:
         type: "string"
         description: "Zobrazuje se v navigaci a v titulku stránky."
         required: true
+        options:
+          maxlength: 40
       - name: "tagline"
         label: "Slogan firmy"
         type: "string"
         required: true
+        options:
+          maxlength: 120
       - name: "nav"
         label: "Navigační menu (horní lišta)"
         type: "object"
@@ -154,17 +197,24 @@ content:
           - name: "links"
             label: "Položky menu"
             type: "object"
-            list: true
+            list:
+              collapsible:
+                collapsed: false
+                summary: "{label}"
             description: "Pořadí položek odpovídá pořadí v menu."
             fields:
               - name: "label"
                 label: "Text položky"
                 type: "string"
                 required: true
+                options:
+                  maxlength: 24
           - name: "cta"
             label: "Text tlačítka v navigaci"
             type: "string"
             required: true
+            options:
+              maxlength: 24
       - name: "seoDefaults"
         label: "Výchozí SEO (použije se, pokud stránka nemá vlastní)"
         type: "object"
@@ -173,10 +223,14 @@ content:
             label: "Výchozí SEO titulek"
             type: "string"
             required: true
+            options:
+              maxlength: 70
           - name: "description"
             label: "Výchozí meta popis"
             type: "text"
             required: true
+            options:
+              maxlength: 180
           - name: "ogImage"
             label: "Výchozí obrázek pro sdílení (Open Graph)"
             type: "image"
