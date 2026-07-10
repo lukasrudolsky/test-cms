@@ -43,7 +43,7 @@ export default function Hero({ content, image, imageAlt }: HeroProps) {
       {/* Color behind the navbar so its glass blur has something visible to distort */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[340px] bg-[radial-gradient(52%_100%_at_50%_0%,rgba(115,87,255,0.28),rgba(115,87,255,0)_70%)]"
+        className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[300px] bg-[radial-gradient(46%_82%_at_50%_0%,rgba(115,87,255,0.10),rgba(115,87,255,0)_72%)]"
       />
       <BackgroundWireframe />
       <div className="relative z-10">
