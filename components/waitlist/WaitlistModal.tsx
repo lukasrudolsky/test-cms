@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { WaitlistContent } from "@/types/content";
 import { closeWaitlist, getServerSnapshot, getSnapshot, subscribe } from "@/lib/waitlistStore";
+import { GLASS_NOISE_TEXTURE } from "@/lib/uiTextures";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -63,15 +64,21 @@ export default function WaitlistModal({ content }: { content: WaitlistContent })
       aria-labelledby="waitlist-title"
     >
       <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/70 backdrop-blur-md"
         onClick={closeWaitlist}
         aria-hidden="true"
       />
 
-      <div className="relative w-full max-w-[420px] overflow-hidden rounded-3xl border border-white/10 bg-[#15141c] p-7 shadow-[0_30px_90px_rgba(0,0,0,0.5)]">
+      <div className="relative w-full max-w-[420px] overflow-hidden rounded-3xl border border-white/10 bg-black/50 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-2xl backdrop-saturate-150">
+        {/* Grain texture: sits above the blur, below the content — same treatment as the navbar glass */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.06] via-white/0 to-transparent"
+          className="pointer-events-none absolute inset-0 opacity-[0.22] mix-blend-overlay"
+          style={{ backgroundImage: GLASS_NOISE_TEXTURE }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.08] via-white/0 to-transparent"
         />
         <div
           aria-hidden="true"
@@ -82,7 +89,7 @@ export default function WaitlistModal({ content }: { content: WaitlistContent })
           type="button"
           onClick={closeWaitlist}
           aria-label="Zavřít"
-          className="absolute right-4 top-4 grid size-9 place-items-center rounded-full text-white/60 transition-colors hover:bg-white/10 hover:text-white"
+          className="absolute right-4 top-4 z-10 grid size-9 place-items-center rounded-full text-white/60 transition-colors hover:bg-white/10 hover:text-white"
         >
           <svg className="size-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
@@ -90,7 +97,7 @@ export default function WaitlistModal({ content }: { content: WaitlistContent })
         </button>
 
         {status === "success" ? (
-          <div className="relative">
+          <div className="relative p-7">
             <div className="grid size-11 place-items-center rounded-full bg-[#7357ff]">
               <svg className="size-5 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="m5 13 4 4L19 7" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" />
@@ -102,8 +109,8 @@ export default function WaitlistModal({ content }: { content: WaitlistContent })
             <p className="mt-2 text-[15px] leading-[1.5] text-white/60">{content.successMessage}</p>
           </div>
         ) : (
-          <form className="relative" onSubmit={handleSubmit} noValidate>
-            <h2 id="waitlist-title" className="text-[22px] font-medium tracking-[-0.03em] text-white">
+          <form className="relative p-7" onSubmit={handleSubmit} noValidate>
+            <h2 id="waitlist-title" className="max-w-[85%] text-[22px] font-medium tracking-[-0.03em] text-white">
               {content.title}
             </h2>
             <p className="mt-2 text-[15px] leading-[1.5] text-white/60">{content.description}</p>
