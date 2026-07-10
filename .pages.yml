@@ -69,7 +69,8 @@ content:
 
       - name: "stats"
         label: "Statistiky a čísla"
-        type: "list"
+        type: "object"
+        list: true
         description: "Karty se statistikami v prostřední části stránky. Lze přidávat, mazat i měnit pořadí přetažením."
         fields:
           - name: "icon"
@@ -152,7 +153,8 @@ content:
         fields:
           - name: "links"
             label: "Položky menu"
-            type: "list"
+            type: "object"
+            list: true
             description: "Pořadí položek odpovídá pořadí v menu."
             fields:
               - name: "label"
