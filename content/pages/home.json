@@ -44,5 +44,13 @@
     "cta": "View Docs",
     "featureOne": "Create and manage wallets with Google, Apple, Facebook and more",
     "featureTwo": "Support available across the Sui ecosystem"
+  },
+  "waitlist": {
+    "title": "Join the waitlist",
+    "description": "Be the first to know when Enoki opens up. No spam, just one email when it's ready.",
+    "emailPlaceholder": "you@example.com",
+    "buttonText": "Join waitlist",
+    "successTitle": "You're on the list!",
+    "successMessage": "Thanks — we'll email you as soon as it's ready."
   }
 }

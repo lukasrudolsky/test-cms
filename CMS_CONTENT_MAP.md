@@ -28,6 +28,14 @@ V Pages CMS sekce: **„Domovská stránka"**
 | Sekce Connect | `connect.featureTwo` | `components/connect/ConnectSection.tsx` | Druhá vlastnost |
 | Sekce Connect | `connect.screenImage` | `components/connect/ConnectSection.tsx` | Obrázek náhledu obrazovky |
 | Sekce Connect | `connect.screenImageAlt` | `components/connect/ConnectSection.tsx` | Alternativní text obrázku |
+| Waitlist popup | `waitlist.title` | `components/waitlist/WaitlistModal.tsx` | Nadpis popupu |
+| Waitlist popup | `waitlist.description` | `components/waitlist/WaitlistModal.tsx` | Popisný text |
+| Waitlist popup | `waitlist.emailPlaceholder` | `components/waitlist/WaitlistModal.tsx` | Nápověda v poli pro e-mail |
+| Waitlist popup | `waitlist.buttonText` | `components/waitlist/WaitlistModal.tsx` | Text tlačítka pro odeslání |
+| Waitlist popup | `waitlist.successTitle` | `components/waitlist/WaitlistModal.tsx` | Nadpis po úspěšném odeslání |
+| Waitlist popup | `waitlist.successMessage` | `components/waitlist/WaitlistModal.tsx` | Text po úspěšném odeslání |
+
+Popup se otevře po kliknutí na tlačítko „Launch Portal" v navigaci (`components/hero/Navbar.tsx`) nebo v Hero sekci (`components/hero/Hero.tsx`). Odeslaný e-mail se validuje a pošle jako notifikace přes Telegram bota (`app/api/waitlist/route.ts`), pokud jsou nastavené proměnné `TELEGRAM_BOT_TOKEN` a `TELEGRAM_ALLOWED_CHAT_ID` — jinak formulář stále funguje (zobrazí úspěch), jen bez notifikace. E-maily se nikam trvale neukládají v repozitáři (na serverless hostingu jako Vercel by se soubor stejně neuchoval mezi requesty a e-maily by neměly patřit do veřejného gitu).
 
 ## Nastavení firmy (globální, platí pro celý web)
 

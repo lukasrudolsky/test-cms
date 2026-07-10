@@ -1,6 +1,9 @@
+"use client";
+
 import BackgroundWireframe from "./BackgroundWireframe";
 import ExchangeCarousel from "./ExchangeCarousel";
 import ParticleTile from "./ParticleTile";
+import { openWaitlist } from "@/lib/waitlistStore";
 
 type HeroProps = {
   content: {
@@ -74,7 +77,11 @@ export default function Hero({ content, image, imageAlt }: HeroProps) {
         </p>
 
         <div className="mt-8 flex w-full max-w-[380px] flex-col items-stretch gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
-          <button className="flex h-12 w-full items-center justify-center gap-2.5 rounded-full bg-[#7357ff] px-6 text-[14px] font-semibold tracking-[-0.02em] text-white shadow-[0_12px_24px_rgba(115,87,255,0.24)] transition-transform hover:-translate-y-px sm:w-[180px]">
+          <button
+            type="button"
+            onClick={() => openWaitlist()}
+            className="flex h-12 w-full items-center justify-center gap-2.5 rounded-full bg-[#7357ff] px-6 text-[14px] font-semibold tracking-[-0.02em] text-white shadow-[0_12px_24px_rgba(115,87,255,0.24)] transition-transform hover:-translate-y-px sm:w-[180px]"
+          >
             {content.primaryCta}
             <DotArrowIcon />
           </button>

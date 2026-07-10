@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { openWaitlist } from "@/lib/waitlistStore";
 
 type NavbarProps = {
   content: {
@@ -98,7 +99,11 @@ export default function Navbar({ content }: NavbarProps) {
               <MenuIcon open={open} />
             </button>
           )}
-          <button className="flex h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-white px-3 text-[13px] font-semibold leading-[1] tracking-[-0.015em] text-[#18191c] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)] transition-colors hover:bg-white/90 sm:h-11 sm:px-6 sm:text-[15px]">
+          <button
+            type="button"
+            onClick={() => openWaitlist()}
+            className="flex h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-white px-3 text-[13px] font-semibold leading-[1] tracking-[-0.015em] text-[#18191c] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)] transition-colors hover:bg-white/90 sm:h-11 sm:px-6 sm:text-[15px]"
+          >
             {content.cta}
           </button>
         </div>

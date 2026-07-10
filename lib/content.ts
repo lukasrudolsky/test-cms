@@ -10,6 +10,14 @@ const DEFAULT_HOME_CONTENT: HomeContent = {
   hero: { title: "", description: "", primaryCta: "", secondaryCta: "" },
   stats: [],
   connect: { eyebrow: "", title: "", description: "", cta: "", featureOne: "", featureTwo: "" },
+  waitlist: {
+    title: "",
+    description: "",
+    emailPlaceholder: "",
+    buttonText: "",
+    successTitle: "",
+    successMessage: "",
+  },
 };
 
 const DEFAULT_SITE_SETTINGS: SiteSettings = {
@@ -30,6 +38,7 @@ export async function getHomeContent(): Promise<HomeContent> {
       hero: { ...DEFAULT_HOME_CONTENT.hero, ...parsed.hero },
       stats: Array.isArray(parsed.stats) ? parsed.stats : [],
       connect: { ...DEFAULT_HOME_CONTENT.connect, ...parsed.connect },
+      waitlist: { ...DEFAULT_HOME_CONTENT.waitlist, ...parsed.waitlist },
     };
   } catch {
     return DEFAULT_HOME_CONTENT;

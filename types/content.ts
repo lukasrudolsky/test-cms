@@ -11,6 +11,15 @@ export type SeoFields = {
   ogImage?: string;
 };
 
+export type WaitlistContent = {
+  title: string;
+  description: string;
+  emailPlaceholder: string;
+  buttonText: string;
+  successTitle: string;
+  successMessage: string;
+};
+
 export type HomeContent = {
   seo: SeoFields;
   hero: {
@@ -32,6 +41,7 @@ export type HomeContent = {
     screenImage?: string;
     screenImageAlt?: string;
   };
+  waitlist: WaitlistContent;
 };
 
 export type NavLink = {

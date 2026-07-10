@@ -3,6 +3,7 @@ import Navbar from "@/components/hero/Navbar";
 import Hero from "@/components/hero/Hero";
 import StatsSection from "@/components/stats/StatsSection";
 import ConnectSection from "@/components/connect/ConnectSection";
+import WaitlistModal from "@/components/waitlist/WaitlistModal";
 import { getHomeContent, getSiteSettings } from "@/lib/content";
 import { SITE_URL } from "@/lib/seo";
 
@@ -56,6 +57,7 @@ export default async function Home() {
         screenImage={content.connect.screenImage}
         screenImageAlt={content.connect.screenImageAlt}
       />
+      <WaitlistModal content={content.waitlist} />
     </main>
   );
 }

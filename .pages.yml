@@ -171,6 +171,48 @@ content:
             options:
               maxlength: 120
 
+      - name: "waitlist"
+        label: "Waitlist popup (přihlášení o zájem)"
+        type: "object"
+        description: "Vyskakovací okno, které se otevře po kliknutí na tlačítko 'Launch Portal' v navigaci i v Hero sekci."
+        fields:
+          - name: "title"
+            label: "Nadpis popupu"
+            type: "string"
+            required: true
+            options:
+              maxlength: 50
+          - name: "description"
+            label: "Popisný text"
+            type: "text"
+            required: true
+            options:
+              maxlength: 160
+          - name: "emailPlaceholder"
+            label: "Nápověda v poli pro e-mail"
+            type: "string"
+            required: true
+            options:
+              maxlength: 40
+          - name: "buttonText"
+            label: "Text tlačítka pro odeslání"
+            type: "string"
+            required: true
+            options:
+              maxlength: 30
+          - name: "successTitle"
+            label: "Nadpis po úspěšném odeslání"
+            type: "string"
+            required: true
+            options:
+              maxlength: 50
+          - name: "successMessage"
+            label: "Text po úspěšném odeslání"
+            type: "text"
+            required: true
+            options:
+              maxlength: 160
+
   - name: "nastaveni-firmy"
     label: "Nastavení firmy"
     type: "file"
