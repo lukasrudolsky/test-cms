@@ -65,7 +65,7 @@ export default function Navbar({ content }: NavbarProps) {
 
   return (
     <header className="fixed inset-x-0 top-5 z-50 flex flex-col items-center px-4 sm:px-6">
-      <nav className="relative grid h-[64px] w-full max-w-[1120px] grid-cols-[1fr_auto_1fr] items-center overflow-hidden rounded-full border border-white/10 bg-black/40 px-4 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-2xl backdrop-saturate-150 sm:px-6">
+      <nav className="relative grid h-[64px] w-full max-w-[1120px] grid-cols-[1fr_auto_1fr] items-center overflow-hidden rounded-full border border-white/10 bg-black/40 px-4 shadow-[0_1px_2px_rgba(0,0,0,0.08),0_10px_24px_rgba(0,0,0,0.08)] backdrop-blur-2xl backdrop-saturate-150 sm:px-6">
         {/* Grain texture: sits above the blur, below the content */}
         <div
           aria-hidden="true"
@@ -121,7 +121,7 @@ export default function Navbar({ content }: NavbarProps) {
       </nav>
 
       {open && links.length > 0 && (
-        <div className="relative mt-2 w-full max-w-[1120px] overflow-hidden rounded-3xl border border-white/10 bg-black/80 px-6 py-4 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-2xl backdrop-saturate-150 lg:hidden">
+        <div className="relative mt-2 w-full max-w-[1120px] overflow-hidden rounded-3xl border border-white/10 bg-black/80 px-6 py-4 shadow-[0_1px_2px_rgba(0,0,0,0.08),0_10px_24px_rgba(0,0,0,0.08)] backdrop-blur-2xl backdrop-saturate-150 lg:hidden">
           <div className="flex flex-col gap-1">
             {links.map((link, index) => (
               <a
