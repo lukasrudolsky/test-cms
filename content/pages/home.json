@@ -1,16 +1,9 @@
 {
-  "seo": {
-    "title": "",
-    "description": "",
-    "ogImage": ""
-  },
   "hero": {
-    "title": "Developer-centric blockchain\ninfrastructure for Sui apps",
+    "title": "Developer-centric blockchain\ninfrastructure for Sui app",
     "description": "Enoki gives developers simple APIs to integrate on-chain features into any application.\nEasy tools, game changing capabilities, all via a simple monthly subscription.",
     "primaryCta": "Launch Portal",
-    "secondaryCta": "Read Docs",
-    "image": "",
-    "imageAlt": ""
+    "secondaryCta": "Read Docs"
   },
   "stats": [
     {
@@ -50,8 +43,6 @@
     "description": "Users can take their wallets with them, and connect to any application on Sui.",
     "cta": "View Docs",
     "featureOne": "Create and manage wallets with Google, Apple, Facebook and more",
-    "featureTwo": "Support available across the Sui ecosystem",
-    "screenImage": "",
-    "screenImageAlt": ""
+    "featureTwo": "Support available across the Sui ecosystem"
   }
 }
