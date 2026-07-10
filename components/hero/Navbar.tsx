@@ -102,7 +102,7 @@ export default function Navbar({ content }: NavbarProps) {
           {links.length > 0 && (
             <button
               type="button"
-              aria-label={open ? "Zavřít menu" : "Otevřít menu"}
+              aria-label={open ? "ZavĹ™Ă­t menu" : "OtevĹ™Ă­t menu"}
               aria-expanded={open}
               onClick={() => setOpen((value) => !value)}
               className="grid size-10 shrink-0 place-items-center rounded-full text-white transition-colors hover:bg-white/10 sm:size-11 lg:hidden"
