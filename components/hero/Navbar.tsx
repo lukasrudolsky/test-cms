@@ -15,19 +15,34 @@ type NavbarProps = {
 function LogoMark() {
   return (
     <svg
-      width="19"
-      height="19"
-      viewBox="0 0 19 19"
+      width="28"
+      height="28"
+      viewBox="0 0 28 28"
       fill="none"
       aria-hidden="true"
-      className="size-6 shrink-0"
+      className="size-7 shrink-0"
     >
-      <rect x="6.4" y="1.6" width="8.2" height="3.2" rx="1.6" fill="#fff" />
-      <rect x="3.1" y="5.8" width="11.5" height="3.2" rx="1.6" fill="#fff" />
-      <rect x="6.4" y="10" width="8.2" height="3.2" rx="1.6" fill="#fff" />
-      <circle cx="3.9" cy="3.2" r="1.55" fill="#fff" />
-      <circle cx="3.9" cy="11.6" r="1.55" fill="#fff" />
-      <circle cx="14.8" cy="15.8" r="1.55" fill="#fff" />
+      <rect x="2.5" y="2.5" width="23" height="23" rx="8" fill="#10131F" />
+      <rect x="3.5" y="3.5" width="21" height="21" rx="7" stroke="url(#logo-ring)" strokeWidth="2" />
+      <path
+        d="M7.4 9.35A2.35 2.35 0 0 1 9.75 7h9.05a2.35 2.35 0 1 1 0 4.7h-6.7v.9h5.05a2.35 2.35 0 1 1 0 4.7H12.1v.9h6.7a2.35 2.35 0 1 1 0 4.7H9.75a2.35 2.35 0 0 1-2.35-2.35V9.35Z"
+        fill="url(#logo-mark)"
+      />
+      <circle cx="8.4" cy="14" r="1.95" fill="#7CF7D4" />
+      <circle cx="19" cy="7" r="1.15" fill="#FFB66E" />
+      <circle cx="19" cy="21" r="1.15" fill="#8F8CFF" />
+      <defs>
+        <linearGradient id="logo-ring" x1="4" y1="4" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#7CF7D4" />
+          <stop offset="0.5" stopColor="#8F8CFF" />
+          <stop offset="1" stopColor="#FFB66E" />
+        </linearGradient>
+        <linearGradient id="logo-mark" x1="8" y1="8" x2="20" y2="22" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#FFFFFF" />
+          <stop offset="0.65" stopColor="#EAF0FF" />
+          <stop offset="1" stopColor="#A7F3E5" />
+        </linearGradient>
+      </defs>
     </svg>
   );
 }
@@ -63,10 +78,10 @@ export default function Navbar({ content }: NavbarProps) {
         <a
           href="#"
           className="relative flex h-full items-center gap-2 [grid-column:1]"
-          aria-label="Enoki"
+          aria-label={content.brand}
         >
           <LogoMark />
-          <span className="text-[16px] font-semibold tracking-[-0.035em] text-white sm:text-[20px]">
+          <span className="text-[16px] font-semibold tracking-normal text-white sm:text-[20px]">
             {content.brand}
           </span>
         </a>
