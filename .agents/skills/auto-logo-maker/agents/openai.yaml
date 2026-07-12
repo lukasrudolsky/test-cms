@@ -1,0 +1,7 @@
+interface:
+  display_name: "Auto Logo Maker"
+  short_description: "Generate and implement project logos"
+  default_prompt: "Use $auto-logo-maker to create and implement a logo from references."
+
+policy:
+  allow_implicit_invocation: true

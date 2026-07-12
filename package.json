@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "validate:logo": "node .agents/skills/auto-logo-maker/scripts/validate-logo.mjs",
+    "logo:import:galshir": "node .agents/skills/auto-logo-maker/scripts/import-portfolio-references.mjs --url \"https://galshir.com/\" --collection \"gal-shir-inspired\" --limit 50"
   },
   "dependencies": {
     "geist": "^1.7.2",

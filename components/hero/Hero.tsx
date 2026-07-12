@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import BackgroundWireframe from "./BackgroundWireframe";
 import ExchangeCarousel from "./ExchangeCarousel";
 import ParticleTile from "./ParticleTile";
@@ -16,30 +17,36 @@ type HeroProps = {
   imageAlt?: string;
 };
 
-function DotArrowIcon({ dark = false }: { dark?: boolean }) {
-  return (
-    <span
-      className={`grid size-4 place-items-center rounded-full ${
-        dark ? "bg-[#151518] text-white" : "bg-white text-[#7357ff]"
-      }`}
-      aria-hidden="true"
-    >
-      <svg className="size-2" viewBox="0 0 8 8" fill="none">
-        <path
-          d="M2 4h4M4.5 2 6.5 4 4.5 6"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="1.2"
-        />
-      </svg>
-    </span>
-  );
-}
-
 export default function Hero({ content, image, imageAlt }: HeroProps) {
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLElement>) => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const rect = section.getBoundingClientRect();
+    section.style.setProperty("--mx", `${event.clientX - rect.left}px`);
+    section.style.setProperty("--my", `${event.clientY - rect.top}px`);
+
+    const target = event.target as HTMLElement;
+    const overContent = !!target.closest("h1, p, a, button, img, svg, nav");
+    section.style.setProperty("--glow-duration", overContent ? "0ms" : "300ms");
+    section.style.setProperty("--glow-opacity", overContent ? "0" : "1");
+  };
+
+  const hideGlow = () => {
+    const section = sectionRef.current;
+    if (!section) return;
+    section.style.setProperty("--glow-duration", "300ms");
+    section.style.setProperty("--glow-opacity", "0");
+  };
+
   return (
-    <section className="relative flex min-h-screen w-full flex-col items-center overflow-hidden bg-[#f4f4f6] px-5 pb-10 pt-[138px] text-center text-[#08090c]">
+    <section
+      ref={sectionRef}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={hideGlow}
+      className="hero-glow-tracker relative flex min-h-screen w-full flex-col items-center overflow-hidden bg-[#f4f4f6] px-5 pb-4 pt-[124px] text-center text-[#08090c]"
+    >
       {/* Color behind the navbar so its glass blur has something visible to distort */}
       <div
         aria-hidden="true"
@@ -80,13 +87,15 @@ export default function Hero({ content, image, imageAlt }: HeroProps) {
           <button
             type="button"
             onClick={() => openWaitlist()}
-            className="flex h-12 w-full items-center justify-center gap-2.5 rounded-full bg-[#7357ff] px-6 text-[14px] font-semibold tracking-[-0.02em] text-white shadow-[0_12px_24px_rgba(115,87,255,0.24)] transition-transform hover:-translate-y-px sm:w-[180px]"
+            className="btn-plastic-primary relative flex h-[61px] w-full items-center justify-center rounded-full bg-[#7357ff] px-6 font-[family-name:var(--font-inter)] text-[18px] font-semibold text-white transition-[transform,box-shadow] duration-200 sm:w-[201px]"
           >
-            {content.primaryCta}
-            <DotArrowIcon />
+            <span className="relative z-10">{content.primaryCta}</span>
           </button>
-          <button className="flex h-12 w-full items-center justify-center rounded-full border border-black/[0.04] bg-white px-6 text-[14px] font-semibold tracking-[-0.02em] text-[#191a1e] shadow-[0_10px_22px_rgba(24,25,30,0.06)] transition-transform hover:-translate-y-px sm:w-[180px]">
-            {content.secondaryCta}
+          <button
+            type="button"
+            className="btn-plastic-light relative flex h-[61px] w-full items-center justify-center rounded-full bg-white px-6 font-[family-name:var(--font-inter)] text-[18px] font-semibold text-[#191a1e] transition-[transform,box-shadow] duration-200 sm:w-[201px]"
+          >
+            <span className="relative z-10">{content.secondaryCta}</span>
           </button>
         </div>
 

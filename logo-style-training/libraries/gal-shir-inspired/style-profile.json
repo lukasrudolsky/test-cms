@@ -1,0 +1,36 @@
+{
+  "collection_id": "gal-shir-inspired",
+  "collection_name": "Gal Shir - geometric brand inspiration",
+  "generated_at": "2026-07-11T15:10:59.762Z",
+  "source": "https://galshir.com/",
+  "item_count": 50,
+  "representative_count": 12,
+  "principles": {
+    "shape_simplification": "Reduce ideas to a small number of bold geometric primitives, often one to five memorable masses.",
+    "negative_space": "Use negative space as meaning-bearing structure, not decoration.",
+    "geometry": "Prefer circles, squares, arcs, stripes, folded polygons, and modular strokes with precise optical balance.",
+    "radius": "Mix soft rounded forms with sharper purposeful cuts when the brand needs contrast.",
+    "monogram": "Use letters only when the letter construction becomes a distinctive symbol.",
+    "color": "Keep brand color systems restrained; the mark must survive in one color.",
+    "small_size": "Favor silhouettes that remain recognizable at 16-24 px."
+  },
+  "anti_copy": [
+    "Do not reuse a specific Gal Shir silhouette or monogram linkage.",
+    "Do not copy a featured brand colorway or exact composition.",
+    "Reject future concepts that look like one specific reference."
+  ],
+  "representative_files": [
+    "gal-shir-002.svg",
+    "gal-shir-001.svg",
+    "gal-shir-003.webp",
+    "gal-shir-006.svg",
+    "gal-shir-013.svg",
+    "gal-shir-019.svg",
+    "gal-shir-025.svg",
+    "gal-shir-028.svg",
+    "gal-shir-033.svg",
+    "gal-shir-037.svg",
+    "gal-shir-041.svg",
+    "gal-shir-045.svg"
+  ]
+}

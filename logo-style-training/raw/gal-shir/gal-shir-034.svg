@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>kela-avatar-1</title>
+    <g id="avatar-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#181825" fill-rule="nonzero" x="0" y="0" width="100" height="100" rx="50"></rect>
+        <path d="M28,57.7401154 L50.2789979,57.7400705 L50.5131966,57.737259 C54.5232232,57.6270522 57.7401154,54.3417421 57.7401154,50.3050865 L57.7393719,50.2530413 L57.7401154,28 L72.6101731,28 L72.6101731,72.6101731 L28,72.6101731 L28,57.7401154 Z M54.7661038,44.3563849 C53.523324,43.4230888 51.9787889,42.8700577 50.3050865,42.8700577 C46.1988335,42.8700577 42.8700577,46.1988335 42.8700577,50.3050865 C42.8700577,51.9787889 43.4230888,53.523324 44.3563849,54.7661038 L28,54.7661038 L28,28 L54.7661038,28 L54.7661038,44.3563849 Z" id="Shape" fill="#F1F0EE" fill-rule="nonzero" transform="translate(50.3051, 50.3051) rotate(45) translate(-50.3051, -50.3051)"></path>
+    </g>
+</svg>

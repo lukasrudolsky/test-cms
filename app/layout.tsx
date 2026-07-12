@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { Inter } from "next/font/google";
 import { SITE_URL } from "@/lib/seo";
 import { getSiteSettings } from "@/lib/content";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
@@ -63,8 +66,11 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     icons: {
-      icon: "/icon.png",
-      apple: "/apple-icon.png",
+      icon: [
+        { url: "/icon.png?v=3", type: "image/png", sizes: "32x32" },
+        { url: "/favicon-3d.png?v=3", type: "image/png", sizes: "512x512" },
+      ],
+      apple: "/apple-icon.png?v=3",
     },
     manifest: "/manifest.webmanifest",
     category: "technology",
@@ -82,7 +88,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${inter.variable}`}>
       <body className="bg-[#f4f4f6] font-sans antialiased">{children}</body>
     </html>
   );

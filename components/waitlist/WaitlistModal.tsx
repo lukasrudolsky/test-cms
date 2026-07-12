@@ -9,6 +9,18 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+function WaitlistEnvelopeIcon() {
+  return (
+    <img
+      src="/waitlist-envelope-icon.png"
+      alt=""
+      aria-hidden="true"
+      className="waitlist-mail-icon"
+      draggable={false}
+    />
+  );
+}
+
 export default function WaitlistModal({ content }: { content: WaitlistContent }) {
   const isOpen = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const [email, setEmail] = useState("");
@@ -58,7 +70,7 @@ export default function WaitlistModal({ content }: { content: WaitlistContent })
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center px-5"
+      className="fixed inset-0 z-[100] flex items-center justify-center px-5 pt-3"
       role="dialog"
       aria-modal="true"
       aria-labelledby="waitlist-title"
@@ -69,82 +81,92 @@ export default function WaitlistModal({ content }: { content: WaitlistContent })
         aria-hidden="true"
       />
 
-      <div className="relative w-full max-w-[420px] overflow-hidden rounded-3xl border border-white/10 bg-black/50 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-2xl backdrop-saturate-150">
-        {/* Grain texture: sits above the blur, below the content — same treatment as the navbar glass */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.22] mix-blend-overlay"
-          style={{ backgroundImage: GLASS_NOISE_TEXTURE }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.08] via-white/0 to-transparent"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-[-60px] top-[-60px] h-[220px] w-[220px] rounded-full bg-[#7357ff]/25 blur-3xl"
-        />
+      <div className="relative w-full max-w-[420px] translate-y-4 pt-5">
+        <WaitlistEnvelopeIcon />
 
-        <button
-          type="button"
-          onClick={closeWaitlist}
-          aria-label="Zavřít"
-          className="absolute right-4 top-4 z-10 grid size-9 place-items-center rounded-full text-white/60 transition-colors hover:bg-white/10 hover:text-white"
-        >
-          <svg className="size-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
-          </svg>
-        </button>
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/50 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-2xl backdrop-saturate-150">
+          {/* Grain texture: sits above the blur, below the content, same treatment as the navbar glass. */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 opacity-[0.22] mix-blend-overlay"
+            style={{ backgroundImage: GLASS_NOISE_TEXTURE }}
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.08] via-white/0 to-transparent"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-[-60px] top-[-60px] h-[220px] w-[220px] rounded-full bg-[#7357ff]/25 blur-3xl"
+          />
 
-        {status === "success" ? (
-          <div className="relative p-7">
-            <div className="grid size-11 place-items-center rounded-full bg-[#7357ff]">
-              <svg className="size-5 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="m5 13 4 4L19 7" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" />
-              </svg>
+          <button
+            type="button"
+            onClick={closeWaitlist}
+            aria-label="Zavrit"
+            className="absolute right-4 top-4 z-10 grid size-9 place-items-center rounded-full text-white/60 transition-colors hover:bg-white/10 hover:text-white"
+          >
+            <svg className="size-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+            </svg>
+          </button>
+
+          {status === "success" ? (
+            <div className="relative p-7">
+              <div className="grid size-11 place-items-center rounded-full bg-[#7357ff]">
+                <svg className="size-5 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="m5 13 4 4L19 7"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2.5"
+                  />
+                </svg>
+              </div>
+              <h2 id="waitlist-title" className="mt-5 text-[22px] font-medium tracking-[-0.03em] text-white">
+                {content.successTitle}
+              </h2>
+              <p className="mt-2 text-[15px] leading-[1.5] text-white/60">{content.successMessage}</p>
             </div>
-            <h2 id="waitlist-title" className="mt-5 text-[22px] font-medium tracking-[-0.03em] text-white">
-              {content.successTitle}
-            </h2>
-            <p className="mt-2 text-[15px] leading-[1.5] text-white/60">{content.successMessage}</p>
-          </div>
-        ) : (
-          <form className="relative p-7" onSubmit={handleSubmit} noValidate>
-            <h2 id="waitlist-title" className="max-w-[85%] text-[22px] font-medium tracking-[-0.03em] text-white">
-              {content.title}
-            </h2>
-            <p className="mt-2 text-[15px] leading-[1.5] text-white/60">{content.description}</p>
+          ) : (
+            <form className="relative p-7" onSubmit={handleSubmit} noValidate>
+              <h2 id="waitlist-title" className="max-w-[85%] text-[22px] font-medium tracking-[-0.03em] text-white">
+                {content.title}
+              </h2>
+              <p className="mt-2 text-[15px] leading-[1.5] text-white/60">{content.description}</p>
 
-            <label htmlFor="waitlist-email" className="sr-only">
-              {content.emailPlaceholder}
-            </label>
-            <input
-              ref={emailInputRef}
-              id="waitlist-email"
-              type="email"
-              required
-              value={email}
-              onChange={(event) => {
-                setEmail(event.target.value);
-                if (status === "error") setStatus("idle");
-              }}
-              placeholder={content.emailPlaceholder}
-              className="mt-6 h-12 w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 text-[15px] text-white placeholder:text-white/35 outline-none transition-colors focus:border-[#7357ff]/60"
-            />
+              <label htmlFor="waitlist-email" className="sr-only">
+                {content.emailPlaceholder}
+              </label>
+              <input
+                ref={emailInputRef}
+                id="waitlist-email"
+                type="email"
+                required
+                value={email}
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                  if (status === "error") setStatus("idle");
+                }}
+                placeholder={content.emailPlaceholder}
+                className="mt-7 h-12 w-full rounded-xl border border-[#7357ff]/70 bg-white/[0.045] px-4 text-[15px] text-white placeholder:text-white/35 outline-none transition-colors focus:border-[#9b84ff]"
+              />
 
-            {status === "error" && (
-              <p className="mt-2 text-[13px] text-[#ff8a8a]">Zadej prosím platný e-mail.</p>
-            )}
+              {status === "error" && (
+                <p className="mt-2 text-[13px] text-[#ff8a8a]">Zadej prosim platny e-mail.</p>
+              )}
 
-            <button
-              type="submit"
-              disabled={status === "submitting"}
-              className="mt-4 flex h-12 w-full items-center justify-center rounded-full bg-[#7357ff] px-6 text-[14px] font-semibold tracking-[-0.02em] text-white shadow-[0_12px_24px_rgba(115,87,255,0.24)] transition-transform hover:-translate-y-px disabled:pointer-events-none disabled:opacity-60"
-            >
-              {status === "submitting" ? "Odesílám…" : content.buttonText}
-            </button>
-          </form>
-        )}
+              <button
+                type="submit"
+                disabled={status === "submitting"}
+                className="btn-plastic-primary relative mt-4 flex h-12 w-full items-center justify-center rounded-full bg-[#7357ff] px-6 text-[14px] font-semibold tracking-[-0.02em] text-white transition-[transform,box-shadow] duration-200 disabled:pointer-events-none disabled:opacity-60"
+              >
+                <span className="relative z-10">{status === "submitting" ? "Odesilam..." : content.buttonText}</span>
+              </button>
+            </form>
+          )}
+        </div>
       </div>
     </div>
   );

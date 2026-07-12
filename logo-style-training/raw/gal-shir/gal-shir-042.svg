@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="216px" height="216px" viewBox="0 0 216 216" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>tenna-avatar-1</title>
+    <defs>
+        <path d="M0,0 L216,0 L216,216 L0,216 L0,0 Z" id="path-1"></path>
+    </defs>
+    <g id="tenna-avatar-1" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
+        <use fill="#FF0055" xlink:href="#path-1"></use>
+        <g id="tenna-symbol-white" transform="translate(38, 67)" fill="#FFFFFF" stroke-width="1">
+            <g id="Shape">
+                <path d="M52.6860426,3 L8.7964757,79 L4.18,79 L48.0631872,3 L52.6860426,3 Z M66.5251355,3 L22.6565198,79 L13.4185322,79 L57.3003883,3 L66.5251355,3 Z M85.028278,3 L41.1304794,79 L27.2825373,79 L71.171255,3 L85.028278,3 Z M108.102551,3 L64.213819,79 L45.7509281,79 L89.610937,3 L108.102551,3 Z M135.81246,3 L91.951083,79 L68.8488338,79 L112.722967,3 L135.81246,3 Z" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -3,6 +3,7 @@ import Navbar from "@/components/hero/Navbar";
 import Hero from "@/components/hero/Hero";
 import StatsSection from "@/components/stats/StatsSection";
 import ConnectSection from "@/components/connect/ConnectSection";
+import Footer from "@/components/footer/Footer";
 import WaitlistModal from "@/components/waitlist/WaitlistModal";
 import { getHomeContent, getSiteSettings } from "@/lib/content";
 import { SITE_URL } from "@/lib/seo";
@@ -17,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const ogImage = content.seo.ogImage || settings.seoDefaults.ogImage || "/og-image.png";
 
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical: "/" },
     openGraph: {
@@ -49,7 +50,10 @@ export default async function Home() {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Navbar content={{ brand: settings.brand, links: settings.nav.links, cta: settings.nav.cta }} />
+      <Navbar
+        content={{ brand: settings.brand, links: settings.nav.links, cta: settings.nav.cta }}
+        variant="darkSurface"
+      />
       <Hero content={content.hero} image={content.hero.image} imageAlt={content.hero.imageAlt} />
       <StatsSection cards={content.stats} />
       <ConnectSection
@@ -57,6 +61,7 @@ export default async function Home() {
         screenImage={content.connect.screenImage}
         screenImageAlt={content.connect.screenImageAlt}
       />
+      <Footer brand={settings.brand} />
       <WaitlistModal content={content.waitlist} />
     </main>
   );

@@ -1,0 +1,2 @@
+type LogoMarkProps = { size?: number; className?: string; title?: string; decorative?: boolean; variant?: "dark" | "light" | "mono" };
+export function LogoMark({ size = 32, className = "", title = "Enoki", decorative = false, variant = "dark" }: LogoMarkProps) { const src = variant === "light" ? "/brand/logo-light.svg" : variant === "mono" ? "/brand/logo-monochrome.svg" : "/brand/logo-mark.svg"; return <img src={src} width={size} height={size} className={className} alt={decorative ? "" : title} aria-hidden={decorative || undefined} />; }

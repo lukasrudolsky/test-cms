@@ -1,0 +1,86 @@
+[
+  {
+    "localName": "gal-shir-002.svg",
+    "classification": "logomark",
+    "projectTitle": "Headroom",
+    "sourceUrl": "https://galshirart.github.io/website/work/headroom-avatar-1.svg",
+    "reason": "standalone avatar/logomark"
+  },
+  {
+    "localName": "gal-shir-001.svg",
+    "classification": "combination-mark",
+    "projectTitle": "Headroom",
+    "sourceUrl": "https://galshirart.github.io/website/work/headroom-preview.svg",
+    "reason": "project preview mark"
+  },
+  {
+    "localName": "gal-shir-003.webp",
+    "classification": "brand-presentation",
+    "projectTitle": "Headroom",
+    "sourceUrl": "https://galshirart.github.io/website/work/headroom-asset-1.webp",
+    "reason": "logo-focused brand presentation"
+  },
+  {
+    "localName": "gal-shir-006.svg",
+    "classification": "combination-mark",
+    "projectTitle": "Tenzai",
+    "sourceUrl": "https://galshirart.github.io/website/work/tenzai-preview.svg",
+    "reason": "project preview mark"
+  },
+  {
+    "localName": "gal-shir-013.svg",
+    "classification": "combination-mark",
+    "projectTitle": "Timeless",
+    "sourceUrl": "https://galshirart.github.io/website/work/timeless-preview.svg",
+    "reason": "project preview mark"
+  },
+  {
+    "localName": "gal-shir-019.svg",
+    "classification": "combination-mark",
+    "projectTitle": "Lemonade",
+    "sourceUrl": "https://galshirart.github.io/website/work/lemonade-preview.svg",
+    "reason": "project preview mark"
+  },
+  {
+    "localName": "gal-shir-025.svg",
+    "classification": "combination-mark",
+    "projectTitle": "Deepdub",
+    "sourceUrl": "https://galshirart.github.io/website/work/deepdub-preview.svg",
+    "reason": "project preview mark"
+  },
+  {
+    "localName": "gal-shir-028.svg",
+    "classification": "combination-mark",
+    "projectTitle": "AstroPay",
+    "sourceUrl": "https://galshirart.github.io/website/work/astropay-preview.svg",
+    "reason": "project preview mark"
+  },
+  {
+    "localName": "gal-shir-033.svg",
+    "classification": "combination-mark",
+    "projectTitle": "Kela",
+    "sourceUrl": "https://galshirart.github.io/website/work/kela-preview.svg",
+    "reason": "project preview mark"
+  },
+  {
+    "localName": "gal-shir-037.svg",
+    "classification": "combination-mark",
+    "projectTitle": "Kooply",
+    "sourceUrl": "https://galshirart.github.io/website/work/kooply-preview.svg",
+    "reason": "project preview mark"
+  },
+  {
+    "localName": "gal-shir-041.svg",
+    "classification": "combination-mark",
+    "projectTitle": "Tenna",
+    "sourceUrl": "https://galshirart.github.io/website/work/tenna-preview.svg",
+    "reason": "project preview mark"
+  },
+  {
+    "localName": "gal-shir-045.svg",
+    "classification": "combination-mark",
+    "projectTitle": "Engini",
+    "sourceUrl": "https://galshirart.github.io/website/work/engini-preview.svg",
+    "reason": "project preview mark"
+  }
+]

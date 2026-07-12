@@ -22,7 +22,7 @@ export default function ExchangeCarousel() {
   const loop = [...EXCHANGES, ...EXCHANGES];
 
   return (
-    <div className="relative my-12 w-full max-w-[1040px] overflow-hidden py-2">
+    <div className="relative my-12 w-full max-w-[930px] overflow-hidden py-2">
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-[#f4f4f6] to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-[#f4f4f6] to-transparent" />
       <div className="flex w-max animate-exchange-marquee items-center">

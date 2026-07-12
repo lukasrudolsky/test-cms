@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="122px" height="122px" viewBox="0 0 122 122" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <defs>
+        <circle id="path-1" cx="61" cy="61" r="61"></circle>
+    </defs>
+    <g id="Presentation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-230, -167)">
+            <g id="Mask" transform="translate(8, 8)">
+                <g id="Group-2" transform="translate(191, 64)">
+                    <g id="Group" transform="translate(31, 95)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Mask" fill="#1C1B1D" xlink:href="#path-1"></use>
+                        <g id="timeless-symbol" mask="url(#mask-2)" fill="#FF0044">
+                            <rect id="Rectangle" x="50.8333333" y="35.5833333" width="20.3333333" height="20.3333333"></rect>
+                            <rect id="Rectangle" x="50.8333333" y="66.0833333" width="20.3333333" height="20.3333333"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

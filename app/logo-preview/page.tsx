@@ -1,0 +1,3 @@
+import { Logo } from "@/components/brand/Logo";
+import { LogoMark } from "@/components/brand/LogoMark";
+export default function LogoPreview() { return <main className="min-h-screen bg-[#f4f4f6] p-12 text-[#11151C]"><h1 className="mb-10 text-4xl font-semibold">Enoki — API Tunnel</h1><section className="grid gap-6 md:grid-cols-2"><div className="rounded-3xl bg-white p-10"><Logo /><div className="mt-8 flex items-end gap-5">{[16,24,32,48,64,128].map(size=><LogoMark key={size} size={size}/>)}</div></div><div className="rounded-3xl bg-[#11151C] p-10"><LogoMark size={128} variant="light" /></div></section></main>; }

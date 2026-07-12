@@ -4,46 +4,31 @@ import { useState } from "react";
 import { openWaitlist } from "@/lib/waitlistStore";
 import { GLASS_NOISE_TEXTURE } from "@/lib/uiTextures";
 
+type NavbarVariant = "lightSurface" | "darkSurface";
+
 type NavbarProps = {
   content: {
     brand: string;
     links: { label: string }[];
     cta: string;
   };
+  variant?: NavbarVariant;
 };
 
-function LogoMark() {
+function cn(...classes: Array<string | false>) {
+  return classes.filter(Boolean).join(" ");
+}
+
+function LogoMark({ variant }: { variant: NavbarVariant }) {
   return (
-    <svg
-      width="28"
-      height="28"
-      viewBox="0 0 28 28"
-      fill="none"
+    <img
+      src={variant === "darkSurface" ? "/brand/logo-light.svg" : "/brand/logo-mark.svg"}
+      width="32"
+      height="32"
+      alt=""
       aria-hidden="true"
-      className="size-7 shrink-0"
-    >
-      <rect x="2.5" y="2.5" width="23" height="23" rx="8" fill="#10131F" />
-      <rect x="3.5" y="3.5" width="21" height="21" rx="7" stroke="url(#logo-ring)" strokeWidth="2" />
-      <path
-        d="M7.4 9.35A2.35 2.35 0 0 1 9.75 7h9.05a2.35 2.35 0 1 1 0 4.7h-6.7v.9h5.05a2.35 2.35 0 1 1 0 4.7H12.1v.9h6.7a2.35 2.35 0 1 1 0 4.7H9.75a2.35 2.35 0 0 1-2.35-2.35V9.35Z"
-        fill="url(#logo-mark)"
-      />
-      <circle cx="8.4" cy="14" r="1.95" fill="#7CF7D4" />
-      <circle cx="19" cy="7" r="1.15" fill="#FFB66E" />
-      <circle cx="19" cy="21" r="1.15" fill="#8F8CFF" />
-      <defs>
-        <linearGradient id="logo-ring" x1="4" y1="4" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#7CF7D4" />
-          <stop offset="0.5" stopColor="#8F8CFF" />
-          <stop offset="1" stopColor="#FFB66E" />
-        </linearGradient>
-        <linearGradient id="logo-mark" x1="8" y1="8" x2="20" y2="22" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#FFFFFF" />
-          <stop offset="0.65" stopColor="#EAF0FF" />
-          <stop offset="1" stopColor="#A7F3E5" />
-        </linearGradient>
-      </defs>
-    </svg>
+      className="size-7 shrink-0 sm:size-8"
+    />
   );
 }
 
@@ -59,39 +44,61 @@ function MenuIcon({ open }: { open: boolean }) {
   );
 }
 
-export default function Navbar({ content }: NavbarProps) {
+export default function Navbar({ content, variant = "darkSurface" }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const links = content.links ?? [];
+  const isDarkSurface = variant === "darkSurface";
 
   return (
     <header className="fixed inset-x-0 top-5 z-50 flex flex-col items-center px-4 sm:px-6">
-      <nav className="relative grid h-[64px] w-full max-w-[1120px] grid-cols-[1fr_auto_1fr] items-center overflow-hidden rounded-full border border-white/10 bg-black/40 px-4 shadow-[0_1px_2px_rgba(0,0,0,0.08),0_10px_24px_rgba(0,0,0,0.08)] backdrop-blur-2xl backdrop-saturate-150 sm:px-6">
-        {/* Grain texture: sits above the blur, below the content */}
+      <nav
+        className={cn(
+          "relative grid h-[56px] w-full max-w-[1120px] grid-cols-[1fr_auto_1fr] items-center overflow-hidden rounded-full px-4 shadow-[0_12px_36px_rgba(0,0,0,0.12)] sm:h-[58px] sm:px-5",
+          isDarkSurface
+            ? "border border-white/10 bg-[#0a0a0a]"
+            : "border border-black/10 bg-white/85 backdrop-blur-2xl"
+        )}
+      >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.22] mix-blend-overlay"
+          className={cn(
+            "pointer-events-none absolute inset-0 mix-blend-overlay",
+            isDarkSurface ? "opacity-[0.22]" : "opacity-[0.08]"
+          )}
           style={{ backgroundImage: GLASS_NOISE_TEXTURE }}
         />
-        {/* Soft top highlight for extra glass depth */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.08] via-white/0 to-transparent" />
+        <div
+          className={cn(
+            "pointer-events-none absolute inset-0 bg-gradient-to-b via-transparent to-transparent",
+            isDarkSurface ? "from-white/[0.08]" : "from-white/70"
+          )}
+        />
 
         <a
           href="#"
           className="relative flex h-full items-center gap-2 [grid-column:1]"
           aria-label={content.brand}
         >
-          <LogoMark />
-          <span className="text-[16px] font-semibold tracking-normal text-white sm:text-[20px]">
+          <LogoMark variant={variant} />
+          <span
+            className={cn(
+              "text-[16px] font-semibold tracking-normal sm:text-[19px]",
+              isDarkSurface ? "text-white" : "text-[#08090c]"
+            )}
+          >
             {content.brand}
           </span>
         </a>
 
-        <div className="relative hidden h-full items-center justify-center gap-9 [grid-column:2] lg:flex">
+        <div className="absolute left-1/2 top-1/2 hidden h-full -translate-x-1/2 -translate-y-1/2 items-center gap-8 lg:flex">
           {links.map((link, index) => (
             <a
               key={`${link.label}-${index}`}
               href="#"
-              className="text-[15px] font-semibold leading-[1] tracking-[-0.015em] text-white/65 transition-colors hover:text-white"
+              className={cn(
+                "text-[14px] font-semibold leading-[1] tracking-[-0.015em] transition-colors",
+                isDarkSurface ? "text-white/65 hover:text-white" : "text-[#5b5b66] hover:text-[#08090c]"
+              )}
             >
               {link.label}
             </a>
@@ -102,10 +109,13 @@ export default function Navbar({ content }: NavbarProps) {
           {links.length > 0 && (
             <button
               type="button"
-              aria-label={open ? "ZavĹ™Ă­t menu" : "OtevĹ™Ă­t menu"}
+              aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((value) => !value)}
-              className="grid size-10 shrink-0 place-items-center rounded-full text-white transition-colors hover:bg-white/10 sm:size-11 lg:hidden"
+              className={cn(
+                "grid size-10 shrink-0 place-items-center rounded-full transition-colors lg:hidden",
+                isDarkSurface ? "text-white hover:bg-white/10" : "text-[#08090c] hover:bg-black/5"
+              )}
             >
               <MenuIcon open={open} />
             </button>
@@ -113,22 +123,37 @@ export default function Navbar({ content }: NavbarProps) {
           <button
             type="button"
             onClick={() => openWaitlist()}
-            className="flex h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-white px-3 text-[13px] font-semibold leading-[1] tracking-[-0.015em] text-[#18191c] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)] transition-colors hover:bg-white/90 sm:h-11 sm:px-6 sm:text-[15px]"
+            className={cn(
+              "relative flex h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-3 text-center text-[13px] font-semibold leading-[1] tracking-[-0.015em] transition-[transform,box-shadow] duration-200 sm:px-5 sm:text-[14px]",
+              isDarkSurface
+                ? "btn-plastic-light bg-white text-[#18191c]"
+                : "bg-[#08090c] text-white shadow-[0_10px_24px_rgba(0,0,0,0.16)] hover:-translate-y-px"
+            )}
           >
-            {content.cta}
+            <span className="relative z-10">{content.cta}</span>
           </button>
         </div>
       </nav>
 
       {open && links.length > 0 && (
-        <div className="relative mt-2 w-full max-w-[1120px] overflow-hidden rounded-3xl border border-white/10 bg-black/80 px-6 py-4 shadow-[0_1px_2px_rgba(0,0,0,0.08),0_10px_24px_rgba(0,0,0,0.08)] backdrop-blur-2xl backdrop-saturate-150 lg:hidden">
+        <div
+          className={cn(
+            "relative mt-2 w-full max-w-[1120px] overflow-hidden rounded-3xl px-6 py-4 shadow-[0_1px_2px_rgba(0,0,0,0.08),0_10px_24px_rgba(0,0,0,0.08)] backdrop-blur-2xl backdrop-saturate-150 lg:hidden",
+            isDarkSurface ? "border border-white/10 bg-black/80" : "border border-black/10 bg-white/90"
+          )}
+        >
           <div className="flex flex-col gap-1">
             {links.map((link, index) => (
               <a
                 key={`${link.label}-${index}`}
                 href="#"
                 onClick={() => setOpen(false)}
-                className="rounded-xl px-2 py-2.5 text-[15px] font-semibold tracking-[-0.015em] text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+                className={cn(
+                  "rounded-xl px-2 py-2.5 text-[15px] font-semibold tracking-[-0.015em] transition-colors",
+                  isDarkSurface
+                    ? "text-white/80 hover:bg-white/10 hover:text-white"
+                    : "text-[#4c4c56] hover:bg-black/5 hover:text-[#08090c]"
+                )}
               >
                 {link.label}
               </a>

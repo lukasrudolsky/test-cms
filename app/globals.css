@@ -7,6 +7,28 @@ body {
   background-color: #f4f4f6;
 }
 
+@property --mx {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@property --my {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+.hero-glow-tracker {
+  transition: --mx 220ms cubic-bezier(0.22, 1, 0.36, 1), --my 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow-tracker {
+    transition: none;
+  }
+}
+
 @keyframes exchange-marquee {
   from {
     transform: translateX(0);
@@ -19,6 +41,112 @@ body {
 
 .animate-exchange-marquee {
   animation: exchange-marquee 34s linear infinite;
+}
+
+.btn-plastic-primary,
+.btn-plastic-light {
+  isolation: isolate;
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
+}
+
+.btn-plastic-primary {
+  background:
+    radial-gradient(120% 92% at 50% -28%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.34) 24%, rgba(255, 255, 255, 0.1) 46%, rgba(255, 255, 255, 0) 68%),
+    linear-gradient(180deg, #b99dff 0%, #9b7cff 25%, #7b57f6 52%, #5d35e9 76%, #4820d7 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.46),
+    inset 0 -8px 14px rgba(38, 11, 145, 0.24),
+    0 10px 24px rgba(92, 58, 224, 0.28);
+}
+
+.btn-plastic-light {
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.btn-plastic-primary::before,
+.btn-plastic-light::before {
+  content: none;
+}
+
+.btn-plastic-primary::after,
+.btn-plastic-light::after {
+  content: none;
+}
+
+.btn-plastic-primary:hover,
+.btn-plastic-light:hover {
+  transform: translateY(-2px) translateZ(0);
+}
+
+.btn-plastic-primary:active,
+.btn-plastic-light:active {
+  transform: translateY(1px) translateZ(0);
+}
+
+.btn-plastic-primary:active {
+  box-shadow:
+    inset 0 2px 8px rgba(48, 29, 151, 0.34),
+    inset 0 -7px 16px rgba(255, 255, 255, 0.14),
+    0 8px 18px rgba(115, 87, 255, 0.24);
+}
+
+.btn-plastic-light:active {
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.08),
+    inset 0 -6px 14px rgba(255, 255, 255, 0.72),
+    0 7px 16px rgba(24, 25, 30, 0.06);
+}
+
+.waitlist-mail-icon {
+  position: absolute;
+  left: 73%;
+  top: 0;
+  z-index: 30;
+  width: 132px;
+  height: 132px;
+  object-fit: contain;
+  pointer-events: none;
+  transform: translate(-50%, -24%) rotate(-7deg);
+  user-select: none;
+}
+
+@media (max-width: 440px) {
+  .waitlist-mail-icon {
+    left: 58%;
+    width: 124px;
+    height: 124px;
+    transform: translate(-50%, -22%) rotate(-7deg);
+  }
+}
+
+.footer-gradient {
+  isolation: isolate;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #faf8ff 18%,
+    #eee9ff 32%,
+    #c9b9ff 48%,
+    #9577ff 66%,
+    #6a43ee 84%,
+    #4a1fe0 100%
+  );
+}
+
+.footer-gradient::before {
+  content: none;
+}
+
+.footer-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(92% 50% at 50% -14%, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0.24) 42%, rgba(255, 255, 255, 0) 78%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(48, 12, 174, 0.18) 100%);
 }
 
 @keyframes connect-purple-flow {

@@ -1,4 +1,5 @@
 import type { StatCardContent } from "@/types/content";
+import CountUpValue from "./CountUpValue";
 
 function Icon({ name }: { name: string }) {
   return (
@@ -48,7 +49,7 @@ export default function StatsSection({ cards }: { cards: StatCardContent[] }) {
   if (safeCards.length === 0) return null;
 
   return (
-    <section className="bg-[#f4f4f6] px-5 pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-28 lg:pt-24">
+    <section className="bg-[#f4f4f6] px-5 pb-16 pt-8 sm:pb-20 sm:pt-10 lg:pb-28 lg:pt-12">
       <div className="mx-auto grid max-w-[930px] grid-cols-1 gap-4 md:grid-cols-3">
         {safeCards.map((card, index) => (
           <article
@@ -62,7 +63,7 @@ export default function StatsSection({ cards }: { cards: StatCardContent[] }) {
             <div>
               {card.value ? (
                 <div className="text-[48px] font-normal leading-[0.92] tracking-[-0.06em] text-[#11111d] sm:text-[56px] lg:text-[64px] lg:tracking-[-0.07em]">
-                  {card.value}
+                  <CountUpValue value={card.value} />
                 </div>
               ) : (
                 <h2 className="whitespace-pre-line text-[26px] font-normal leading-[0.92] tracking-[-0.045em] text-[#11111d] sm:text-[28px] lg:text-[32px] lg:tracking-[-0.055em]">

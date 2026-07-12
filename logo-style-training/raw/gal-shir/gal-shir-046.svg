@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="216px" height="216px" viewBox="0 0 216 216" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>engini-avatar-1</title>
+    <defs>
+        <path d="M0,0 L216,0 L216,216 L0,216 L0,0 Z" id="path-1"></path>
+        <linearGradient x1="50%" y1="2.56739074e-14%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="2.56739074e-14%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="engini-avatar-1" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
+        <use fill="#1F1E21" xlink:href="#path-1"></use>
+        <g id="engini-symbol-white" stroke-width="1" transform="translate(44, 34)">
+            <path d="M64,0 L128,36.9677988 L128,55.3912883 L64,92.362773 L40,78.51795 L40,87.760303 L64,101.614272 L128,64.664 L128,110.848325 L64,147.808974 L0,110.848325 L0,36.9677988 L64,0 Z M64,18.4664564 L16,46.1886458 L16,101.614272 L64,129.344259 L112,101.614272 L112,92.382517 L64,120.086304 L24,97.001287 L24,50.8085353 L64,27.7072144 L104,50.8085353 L112,46.1886458 L64,18.4664564 Z M64,46.1886458 L40,60.0440065 L64,73.899367 L88,60.0440065 L64,46.1886458 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path d="M128,64.664 L128,110.848325 L64,147.808974 L64,129.344259 L112,101.614272 L112,92.382517 L64,120.086304 L64,101.614272 L128,64.664 Z M128,36.9677988 L128,55.3912883 L64,92.362773 L64,73.905358 L128,36.9677988 Z" id="Shape" fill="url(#linearGradient-2)" fill-rule="nonzero" opacity="0.400000006"></path>
+            <path d="M64,0 L128,36.9677988 L64,73.905358 L24,50.819 L24,50.8085353 L64,27.7072144 L104,50.8085353 L112,46.1886458 L64,18.4664564 L16,46.1886458 L16,46.202 L0,36.9677988 L64,0 Z M64,46.1886458 L40,60.0440065 L64,73.899367 L88,60.0440065 L64,46.1886458 Z" id="Shape" fill="url(#linearGradient-3)" fill-rule="nonzero" opacity="0.400000006"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <title>Template logo mark</title>
+  <path d="M16 4L26 10V22L16 28L6 22V10L16 4Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M11 16H21M16 11V21" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+</svg>
